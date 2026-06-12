@@ -5,5 +5,6 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './auth.html',
   styleUrl: './auth.scss',
+  standalone: true,
 })
 export class Auth {}

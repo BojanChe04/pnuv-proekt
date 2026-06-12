@@ -5,5 +5,6 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './checkin.html',
   styleUrl: './checkin.scss',
+  standalone: true,
 })
 export class Checkin {}

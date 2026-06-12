@@ -1,17 +1,17 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { CheckinComponent } from './pages/checkin/checkin.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { StatsComponent } from './pages/stats/stats.component';
-import { ChallengesComponent } from './pages/challenges/challenges.component';
-import { AuthComponent } from './pages/auth/auth.component';
+import { Home } from './pages/home/home';
+import { Checkin } from './pages/checkin/checkin';
+import { Dashboard } from './pages/dashboard/dashboard';
+import { Stats } from './pages/stats/stats';
+import { Challenges } from './pages/challenges/challenges';
+import { Auth } from './pages/auth/auth';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'checkin', component: CheckinComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'stats', component: StatsComponent },
-  { path: 'challenges', component: ChallengesComponent },
-  { path: 'auth', component: AuthComponent },
+  { path: '', component: Home },
+  { path: 'checkin', component: Checkin },
+  { path: 'dashboard', component: Dashboard },
+  { path: 'stats', component: Stats },
+  { path: 'challenges', component: Challenges },
+  { path: 'auth', component: Auth },
   { path: '**', redirectTo: '' }
 ];
