@@ -1,0 +1,48 @@
+.stats-page {
+  background: #FBF6E9;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.stats-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 2rem;
+    color: #118B50;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #5DB996;
+    font-size: 1rem;
+  }
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.chart-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(17, 139, 80, 0.1);
+  border-top: 4px solid #5DB996;
+
+  h2 {
+    font-size: 1rem;
+    color: #118B50;
+    margin-bottom: 1rem;
+  }
+
+  &.wide {
+    grid-column: span 2;
+  }
+}

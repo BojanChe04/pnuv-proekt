@@ -1,1 +1,37 @@
-<p>stats works!</p>
+<div class="stats-page" [hidden]="!hbscData">
+
+  <div class="stats-header">
+    <h1>📊 HBSC Статистики</h1>
+    <p>Северна Македонија — Истражување 2022</p>
+  </div>
+
+  <div class="charts-grid">
+
+    <div class="chart-card">
+      <h2>😰 Притисок од училиште</h2>
+      <canvas #schoolChart></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h2>🏃 Физичка активност</h2>
+      <canvas #activityChart></canvas>
+    </div>
+
+    <div class="chart-card wide">
+      <h2>📱 Проблематично користење на социјални мрежи</h2>
+      <canvas #socialChart></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h2>😔 Осаменост</h2>
+      <canvas #lonelyChart></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h2>⭐ Задоволство од живот</h2>
+      <canvas #lifeChart></canvas>
+    </div>
+
+  </div>
+
+</div>

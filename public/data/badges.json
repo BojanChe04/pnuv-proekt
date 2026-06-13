@@ -1,0 +1,14 @@
+[
+  { "id": "first-step", "title": "Прв чекор", "description": "Заврши го првиот предизвик", "icon": "rocket", "condition": { "type": "total-completed", "value": 1 } },
+  { "id": "streak-3", "title": "Тројна серија", "description": "Постигни серија од 3 дена", "icon": "fire", "condition": { "type": "streak", "value": 3 } },
+  { "id": "streak-7", "title": "Огнена серија x7", "description": "Постигни серија од 7 дена", "icon": "flame", "condition": { "type": "streak", "value": 7 } },
+  { "id": "streak-14", "title": "Двонеделна серија", "description": "Постигни серија од 14 дена", "icon": "star", "condition": { "type": "streak", "value": 14 } },
+  { "id": "streak-30", "title": "Месечен воин", "description": "Постигни серија од 30 дена", "icon": "trophy", "condition": { "type": "streak", "value": 30 } },
+  { "id": "cat-physical", "title": "Телото е храм", "description": "Заврши 5 предизвици за физичка активност", "icon": "runner", "condition": { "type": "category-completed", "category": "physical", "value": 5 } },
+  { "id": "cat-mental", "title": "Здрав ум", "description": "Заврши 5 предизвици за ментално здравје", "icon": "brain", "condition": { "type": "category-completed", "category": "mental-health", "value": 5 } },
+  { "id": "cat-sleep", "title": "Сон е моќ", "description": "Заврши 3 предизвици за спиење", "icon": "moon", "condition": { "type": "category-completed", "category": "sleep", "value": 3 } },
+  { "id": "cat-digital", "title": "Дигитален детокс", "description": "Заврши 3 предизвици за дигитална благосостојба", "icon": "shield", "condition": { "type": "category-completed", "category": "digital", "value": 3 } },
+  { "id": "cat-social", "title": "Социјална пеперутка", "description": "Заврши 5 предизвици за социјална поврзаност", "icon": "heart", "condition": { "type": "category-completed", "category": "social", "value": 5 } },
+  { "id": "ten-done", "title": "Прва десетка", "description": "Заврши 10 предизвици вкупно", "icon": "medal", "condition": { "type": "total-completed", "value": 10 } },
+  { "id": "twenty-done", "title": "Двојна десетка", "description": "Заврши 20 предизвици вкупно", "icon": "crown", "condition": { "type": "total-completed", "value": 20 } }
+]

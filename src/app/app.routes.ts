@@ -2,16 +2,16 @@ import { Routes } from '@angular/router';
 import { Home } from './pages/home/home';
 import { Checkin } from './pages/checkin/checkin';
 import { Dashboard } from './pages/dashboard/dashboard';
-import { Stats } from './pages/stats/stats';
+import { StatsComponent } from './pages/stats/stats';
 import { Challenges } from './pages/challenges/challenges';
-import { Auth } from './pages/auth/auth';
+import { AuthComponent } from './pages/auth/auth';
 
 export const routes: Routes = [
   { path: '', component: Home },
   { path: 'checkin', component: Checkin },
   { path: 'dashboard', component: Dashboard },
-  { path: 'stats', component: Stats },
+  { path: 'stats', component: StatsComponent },
   { path: 'challenges', component: Challenges },
-  { path: 'auth', component: Auth },
+  { path: 'auth', component: AuthComponent },
   { path: '**', redirectTo: '' }
 ];
