@@ -1,0 +1,23 @@
+<header class="header">
+  <div class="header-container">
+
+    <a routerLink="/" class="logo">🧠 MindTrack</a>
+
+    <nav class="nav">
+      @if (currentUser$ | async) {
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        <a routerLink="/checkin" routerLinkActive="active">Check-in</a>
+        <a routerLink="/challenges" routerLinkActive="active">Challenges</a>
+        <a routerLink="/stats" routerLinkActive="active">Stats</a>
+        <button class="btn-logout" (click)="logout()">Одјави се</button>
+      } @else {
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a routerLink="/stats" routerLinkActive="active">Status</a>
+        <a routerLink="/about" routerLinkActive="active">За нас</a>
+        <a routerLink="/auth" class="btn-login">Најави се</a>
+      }
+    </nav>
+
+  </div>
+</header>

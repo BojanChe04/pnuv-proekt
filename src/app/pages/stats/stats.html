@@ -1,37 +1,87 @@
 <div class="stats-page" [hidden]="!hbscData">
 
   <div class="stats-header">
-    <h1>📊 HBSC Статистики</h1>
-    <p>Северна Македонија — Истражување 2022</p>
+    <div class="header-left">
+      <h1>HBSC Статистики</h1>
+      <p>Северна Македонија — Истражување 2022</p>
+    </div>
+    <div class="header-badge">
+      <span>Година</span>
+      <strong>2022</strong>
+    </div>
   </div>
 
   <div class="charts-grid">
 
-    <div class="chart-card">
-      <h2>😰 Притисок од училиште</h2>
+    <div class="chart-card card-green">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-icon">😰</div>
+          <div>
+            <h2>Притисок од училиште</h2>
+            <p>По возраст и пол</p>
+          </div>
+        </div>
+        <span class="card-tag">BAR</span>
+      </div>
       <canvas #schoolChart></canvas>
     </div>
 
-    <div class="chart-card">
-      <h2>🏃 Физичка активност</h2>
+    <div class="chart-card card-teal">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-icon">🏃</div>
+          <div>
+            <h2>Физичка активност</h2>
+            <p>По возраст и пол</p>
+          </div>
+        </div>
+        <span class="card-tag">BAR</span>
+      </div>
       <canvas #activityChart></canvas>
     </div>
 
-    <div class="chart-card wide">
-      <h2>📱 Проблематично користење на социјални мрежи</h2>
+    <div class="chart-card card-lime wide">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-icon">📱</div>
+          <div>
+            <h2>Проблематично користење на социјални мрежи</h2>
+            <p>Тренд по возраст и пол</p>
+          </div>
+        </div>
+        <span class="card-tag">LINE</span>
+      </div>
       <canvas #socialChart></canvas>
     </div>
 
-    <div class="chart-card">
-      <h2>😔 Осаменост</h2>
+    <div class="chart-card card-green">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-icon">😔</div>
+          <div>
+            <h2>Осаменост</h2>
+            <p>Распределба по групи</p>
+          </div>
+        </div>
+        <span class="card-tag">DONUT</span>
+      </div>
       <canvas #lonelyChart></canvas>
     </div>
 
-    <div class="chart-card">
-      <h2>⭐ Задоволство од живот</h2>
+    <div class="chart-card card-teal">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-icon">⭐</div>
+          <div>
+            <h2>Задоволство од живот</h2>
+            <p>Среден скор 0–10</p>
+          </div>
+        </div>
+        <span class="card-tag">RADAR</span>
+      </div>
       <canvas #lifeChart></canvas>
     </div>
 
   </div>
-
 </div>
