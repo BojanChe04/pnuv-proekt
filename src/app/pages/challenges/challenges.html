@@ -1,1 +1,83 @@
-<p>challenges works!</p>
+<div class="challenges-page">
+
+  <div class="challenges-header">
+    <h1>Предизвици</h1>
+    <p>Секојдневни задачи за подобро ментално здравје</p>
+  </div>
+
+  <div class="top-row">
+    <div class="streak-card">
+      <span class="streak-icon">🔥</span>
+      <div>
+        <h2>{{ streak }}</h2>
+        <p>ден streak</p>
+      </div>
+    </div>
+
+    <div class="badges-card">
+      <h3>Твои badge-ови</h3>
+      <div class="badges-row">
+        @for (badge of badgeList; track badge.id) {
+          <div class="badge" [class.unlocked]="badge.unlocked" [class.locked]="!badge.unlocked">
+            <span>{{ badge.icon }}</span>
+            <p>{{ badge.label }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- ДЕНЕШЕН ПРЕДИЗВИК -->
+  <div class="today-card" [class.completed]="todayCompleted">
+    <div class="today-header">
+      <span class="today-label">Денешен предизвик</span>
+      @if (todayCompleted) {
+        <span class="done-badge">✅ Завршено</span>
+      }
+    </div>
+    <div class="today-content">
+      <span class="today-icon">{{ todayChallenge.icon }}</span>
+      <div>
+        <h2>{{ todayChallenge.title }}</h2>
+        <p>{{ todayChallenge.description }}</p>
+        <span class="category-tag">{{ todayChallenge.category }}</span>
+      </div>
+    </div>
+    <button
+      class="btn-complete"
+      (click)="completeToday()"
+      [disabled]="todayCompleted || loading">
+      {{ loading ? 'Се зачувува...' : todayCompleted ? 'Завршено!' : 'Заврши го предизвикот' }}
+    </button>
+  </div>
+
+  <!-- КАТЕГОРИИ -->
+  <div class="categories-row">
+    @for (cat of categories; track cat) {
+      <button
+        class="cat-btn"
+        [class.active]="selectedCategory === cat"
+        (click)="selectCategory(cat)">
+        {{ cat }}
+      </button>
+    }
+  </div>
+
+  <!-- СИ ПРЕДИЗВИЦИ -->
+  <div class="challenges-grid">
+    @for (challenge of filteredChallenges; track challenge.id) {
+      <div class="challenge-card" [class.completed]="isCompleted(challenge.id)">
+        <div class="challenge-icon">{{ challenge.icon }}</div>
+        <div class="challenge-info">
+          <h3>{{ challenge.title }}</h3>
+          <p>{{ challenge.description }}</p>
+          <span class="category-tag">{{ challenge.category }}</span>
+        </div>
+        @if (isCompleted(challenge.id)) {
+          <span class="check">✅</span>
+        }
+      </div>
+    }
+  </div>
+
+</div>
