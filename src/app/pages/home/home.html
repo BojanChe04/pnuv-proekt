@@ -5,8 +5,10 @@
       <h1>Како се чувствуваш денес?</h1>
       <p>Твоето ментално здравје е важно. Следи го своето расположение, прифати предизвици и запознај се со себе подобро.</p>
       <div class="hero-buttons">
+        @if (!isLoggedIn) {
         <a routerLink="/auth" class="btn-primary">Најави се</a>
         <a routerLink="/auth" class="btn-secondary">Регистрирај се</a>
+        }
       </div>
     </div>
   </div>
