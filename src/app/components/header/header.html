@@ -1,7 +1,10 @@
 <header class="header">
   <div class="header-container">
 
-    <a routerLink="/" class="logo">🧠 MindTrack</a>
+    <a routerLink="/" class="logo">
+      <img src="MindNest-logoCropp.png" alt="cover" class="logo-img" />
+      <span>MindNest</span>
+    </a>
 
     <nav class="nav">
       @if (currentUser$ | async) {
