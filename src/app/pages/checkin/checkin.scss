@@ -1,0 +1,258 @@
+.checkin-page {
+  background: #FBF6E9;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.checkin-container {
+  background: white;
+  border-radius: 24px;
+  padding: 3rem;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(17, 139, 80, 0.1);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #E3F0AF;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.8rem;
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #118B50, #5DB996);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+  }
+}
+
+.step-counter {
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.step-content {
+  min-height: 280px;
+
+  h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #118B50;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 2rem;
+  }
+}
+
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.8rem;
+
+  .mood-btn {
+    background: #FBF6E9;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    padding: 1.2rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:hover {
+      transform: translateY(-2px);
+      background: #E3F0AF;
+    }
+
+    &.selected {
+      border-color: #118B50;
+      background: #E3F0AF;
+    }
+
+    .mood-emoji {
+      font-size: 2rem;
+    }
+
+    .mood-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #118B50;
+      text-align: center;
+    }
+  }
+}
+
+.slider-section {
+  text-align: center;
+
+  .slider-emoji {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.rating-block {
+  margin-bottom: 2rem;
+
+  label {
+    display: block;
+    font-weight: 700;
+    color: #118B50;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+.slider {
+  width: 100%;
+  height: 8px;
+  border-radius: 10px;
+  background: #E3F0AF;
+  outline: none;
+  -webkit-appearance: none;
+  margin-bottom: 0.5rem;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #118B50;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(17, 139, 80, 0.4);
+  }
+
+  &::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #118B50;
+    cursor: pointer;
+    border: none;
+  }
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #999;
+}
+
+textarea {
+  width: 100%;
+  border: 2px solid #E3F0AF;
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  resize: none;
+  background: #FBF6E9;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+    border-color: #5DB996;
+  }
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 1rem;
+
+  button {
+    flex: 1;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: #118B50;
+    color: #FBF6E9;
+
+    &:hover:not(:disabled) {
+      background: #5DB996;
+    }
+
+    &:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #118B50;
+    border: 2px solid #118B50;
+
+    &:hover {
+      background: #FBF6E9;
+    }
+  }
+}
+
+.success-container {
+  text-align: center;
+  background: white;
+  border-radius: 24px;
+  padding: 4rem 3rem;
+  max-width: 500px;
+  box-shadow: 0 8px 32px rgba(17, 139, 80, 0.1);
+
+  .success-icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #118B50;
+    margin-bottom: 1rem;
+  }
+
+  .message {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .btn-primary {
+    background: #118B50;
+    color: #FBF6E9;
+    padding: 14px 32px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #5DB996;
+    }
+  }
+}

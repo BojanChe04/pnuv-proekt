@@ -1,1 +1,115 @@
-<p>checkin works!</p>
+<div class="checkin-page">
+
+  @if (!submitted) {
+
+    <div class="checkin-container">
+
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="(step / totalSteps) * 100"></div>
+      </div>
+      <p class="step-counter">Чекор {{ step }} од {{ totalSteps }}</p>
+
+      <!-- STEP 1: MOOD -->
+      @if (step === 1) {
+        <div class="step-content">
+          <h1>Како се чувствуваш денес?</h1>
+          <p class="subtitle">Избери го расположението кое најдобро те опишува</p>
+
+          <div class="mood-grid">
+            @for (mood of moods; track mood.value) {
+              <button
+                class="mood-btn"
+                [class.selected]="selectedMood === mood.value"
+                (click)="selectMood(mood.value)">
+                <span class="mood-emoji">{{ mood.emoji }}</span>
+                <span class="mood-label">{{ mood.label }}</span>
+              </button>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- STEP 2: STRESS -->
+      @if (step === 2) {
+        <div class="step-content">
+          <h1>Колку стрес чувствуваш?</h1>
+          <p class="subtitle">Помести го лизгачот според твоето ниво на стрес</p>
+
+          <div class="slider-section">
+            <span class="slider-emoji">{{ stressLevel <= 2 ? '😌' : stressLevel === 3 ? '😐' : '😰' }}</span>
+            <input type="range" min="1" max="5" [(ngModel)]="stressLevel" class="slider" />
+            <div class="slider-labels">
+              <span>Многу мирно</span>
+              <span>Многу стресно</span>
+            </div>
+          </div>
+        </div>
+      }
+
+      <!-- STEP 3: SLEEP & SOCIAL -->
+      @if (step === 3) {
+        <div class="step-content">
+          <h1>Сон и социјална поврзаност</h1>
+          <p class="subtitle">Оцени ги следните аспекти</p>
+
+          <div class="rating-block">
+            <label>😴 Квалитет на сон</label>
+            <input type="range" min="1" max="5" [(ngModel)]="sleepQuality" class="slider" />
+            <div class="slider-labels">
+              <span>Лошо</span>
+              <span>Одлично</span>
+            </div>
+          </div>
+
+          <div class="rating-block">
+            <label>👥 Социјална поврзаност</label>
+            <input type="range" min="1" max="5" [(ngModel)]="socialConnection" class="slider" />
+            <div class="slider-labels">
+              <span>Осамено</span>
+              <span>Поврзано</span>
+            </div>
+          </div>
+        </div>
+      }
+
+      <!-- STEP 4: NOTE -->
+      @if (step === 4) {
+        <div class="step-content">
+          <h1>Сакаш да додадеш белешка?</h1>
+          <p class="subtitle">Опционално — сподели како се чувствуваш во неколку зборови</p>
+
+          <textarea
+            [(ngModel)]="note"
+            placeholder="На пример: Денес имав напорен ден на училиште, но вечерта се опуштив..."
+            rows="6">
+          </textarea>
+        </div>
+      }
+
+      <div class="nav-buttons">
+        @if (step > 1) {
+          <button class="btn-secondary" (click)="prevStep()">← Назад</button>
+        }
+        @if (step < totalSteps) {
+          <button class="btn-primary" [disabled]="!canProceed()" (click)="nextStep()">Понатаму →</button>
+        } @else {
+          <button class="btn-primary" [disabled]="loading" (click)="submitCheckin()">
+            {{ loading ? 'Се зачувува...' : 'Заврши Check-in ✓' }}
+          </button>
+        }
+      </div>
+
+    </div>
+
+  } @else {
+
+    <div class="success-container">
+      <div class="success-icon">{{ selectedMoodEmoji }}</div>
+      <h1>Благодариме!</h1>
+      <p class="message">{{ getMotivationalMessage() }}</p>
+      <button class="btn-primary" (click)="goToDashboard()">Назад кон Dashboard</button>
+    </div>
+
+  }
+
+</div>

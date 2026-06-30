@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, Injector, runInInjectionContext } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth';
@@ -14,6 +14,7 @@ import { Firestore, collection, query, where, orderBy, limit, getDocs } from '@a
 export class Dashboard implements OnInit {
   private authService = inject(AuthService);
   private firestore = inject(Firestore);
+  private injector = inject(Injector);
 
   userName = '';
   today = new Date();
@@ -32,16 +33,25 @@ export class Dashboard implements OnInit {
     { value: 'многу лошо', emoji: '😢' }
   ];
 
-  async ngOnInit() {
-    this.authService.currentUser$.subscribe(async user => {
+  ngOnInit() {
+    this.authService.currentUser$.subscribe(user => {
       if (user) {
-        const profile = await this.authService.getUserProfile(user.uid);
-        this.userName = profile?.['name'] || user.email || 'Корисник';
+        runInInjectionContext(this.injector, async () => {
+          try {
+            const profile = await this.authService.getUserProfile(user.uid);
+            this.userName = profile?.['name'] || user.email || 'Корисник';
 
-        await this.loadRecentCheckins(user.uid);
-        await this.loadChallengeProgress(user.uid);
+            await this.loadRecentCheckins(user.uid);
+            await this.loadChallengeProgress(user.uid);
+          } catch (e) {
+            console.error('Error loading dashboard data:', e);
+          } finally {
+            this.loading = false;
+          }
+        });
+      } else {
+        this.loading = false;
       }
-      this.loading = false;
     });
   }
 
@@ -61,7 +71,9 @@ export class Dashboard implements OnInit {
         this.lastMood = last['mood'];
         this.lastMoodEmoji = this.moods.find(m => m.value === last['mood'])?.emoji || '😐';
       }
-    } catch (e) {}
+    } catch (e) {
+      console.error('Error loading recent checkins:', e);
+    }
   }
 
   async loadChallengeProgress(uid: string) {
@@ -76,7 +88,9 @@ export class Dashboard implements OnInit {
         this.streak = data['streak'] || 0;
         this.completedChallenges = (data['completedChallenges'] || []).length;
       }
-    } catch (e) {}
+    } catch (e) {
+      console.error('Error loading challenge progress:', e);
+    }
   }
 
   getDayName(): string {

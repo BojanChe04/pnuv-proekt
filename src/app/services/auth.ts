@@ -13,6 +13,10 @@ export class AuthService {
 
   currentUser$ = user(this.auth);
 
+  get currentUser() {
+    return this.auth.currentUser;
+  }
+
   async register(email: string, password: string, name: string) {
     const credential = await createUserWithEmailAndPassword(this.auth, email, password);
 
